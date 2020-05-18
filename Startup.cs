@@ -29,7 +29,7 @@ namespace Cw11
         {
             services.AddDbContext<CodeFirstContext>(options =>
             {
-                options.UseSqlServer();
+                options.UseSqlServer(Configuration.GetConnectionString("DbContext"));
             });
             services.AddControllers();
         }
