@@ -44,6 +44,22 @@ namespace Cw11.Migrations
                         .HasName("Doctor_PK");
 
                     b.ToTable("Doctor");
+
+                    b.HasData(
+                        new
+                        {
+                            IdDoctor = 1,
+                            Email = "aaa@wp.pl",
+                            FirstName = "Adam",
+                            LastName = "Nowak"
+                        },
+                        new
+                        {
+                            IdDoctor = 2,
+                            Email = "bbb@wp.pl",
+                            FirstName = "Tomasz",
+                            LastName = "Kowalski"
+                        });
                 });
 
             modelBuilder.Entity("Cw11.Models.Medicament", b =>
@@ -72,6 +88,15 @@ namespace Cw11.Migrations
                         .HasName("Medicament_PK");
 
                     b.ToTable("Medicament");
+
+                    b.HasData(
+                        new
+                        {
+                            IdMedicament = 1,
+                            Description = "na bol",
+                            Name = "Apap",
+                            Type = "zwykly"
+                        });
                 });
 
             modelBuilder.Entity("Cw11.Models.Patient", b =>
@@ -98,6 +123,22 @@ namespace Cw11.Migrations
                         .HasName("Patient_PK");
 
                     b.ToTable("Patient");
+
+                    b.HasData(
+                        new
+                        {
+                            IdPatient = 2,
+                            Birthdate = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            FirstName = "Witold",
+                            LastName = "Czapek"
+                        },
+                        new
+                        {
+                            IdPatient = 1,
+                            Birthdate = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            FirstName = "Janusz",
+                            LastName = "Korwin"
+                        });
                 });
 
             modelBuilder.Entity("Cw11.Models.Prescription", b =>
@@ -127,6 +168,16 @@ namespace Cw11.Migrations
                     b.HasIndex("IdPatient");
 
                     b.ToTable("Prescription");
+
+                    b.HasData(
+                        new
+                        {
+                            IdPrescription = 1,
+                            Date = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            DueDate = new DateTime(2020, 5, 19, 0, 0, 0, 0, DateTimeKind.Local),
+                            IdDoctor = 1,
+                            IdPatient = 1
+                        });
                 });
 
             modelBuilder.Entity("Cw11.Models.PrescriptionMedicament", b =>
@@ -151,6 +202,15 @@ namespace Cw11.Migrations
                     b.HasIndex("IdMedicament");
 
                     b.ToTable("Prescription_Medicament");
+
+                    b.HasData(
+                        new
+                        {
+                            IdPrescription = 1,
+                            IdMedicament = 1,
+                            Details = "ssss",
+                            Dose = 1
+                        });
                 });
 
             modelBuilder.Entity("Cw11.Models.Prescription", b =>

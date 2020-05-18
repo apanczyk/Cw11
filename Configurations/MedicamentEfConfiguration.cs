@@ -1,0 +1,18 @@
+using Cw11.Models;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Builders;
+
+namespace Cw11.Configurations
+{
+    public class MedicamentEfConfiguration : IEntityTypeConfiguration<Medicament>
+    {
+        public void Configure(EntityTypeBuilder<Medicament> builder)
+        {
+            builder.HasKey(e => e.IdMedicament).HasName("Medicament_PK");
+                
+            builder.Property(e => e.Name).HasMaxLength(30).IsRequired();
+            builder.Property(e => e.Type).HasMaxLength(30).IsRequired();
+            builder.Property(e => e.Description).HasMaxLength(30).IsRequired();
+        }
+    }
+}
