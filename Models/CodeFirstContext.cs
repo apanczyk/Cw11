@@ -19,13 +19,9 @@ namespace Cw11.Models
         {
             
             modelBuilder.ApplyConfiguration(new PatientEfConfiguration());
-            
             modelBuilder.ApplyConfiguration(new DoctorEfConfiguration());
-            
             modelBuilder.ApplyConfiguration(new PrescriptionEfConfiguration());
-
             modelBuilder.ApplyConfiguration(new MedicamentEfConfiguration());
-
             modelBuilder.ApplyConfiguration(new PrescriptionMedicamentEfConfiguration());
 
             // metoda Seed znajduje się w klasie SeedEfConfiguration 
